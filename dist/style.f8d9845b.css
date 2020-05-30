@@ -107,6 +107,9 @@ body{
     text-transform: uppercase;
 
 }
+img{
+    width: 40px;
+    }
 .siteList .site>.link{
 font-size:14px;
 margin-top: 4px;
@@ -148,4 +151,4 @@ margin-top: 4px;
 margin-top: 4px;
 }
 
-/*# sourceMappingURL=style.f9f68553.css.map */
+/*# sourceMappingURL=style.f8d9845b.css.map */

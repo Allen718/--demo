@@ -3,8 +3,8 @@ const $lastLi = $('.siteList').find("li.last")
 const x = localStorage.getItem('x')
 const xObject = JSON.parse(x)
 const hashMap = xObject || [
-    { logo: 'A', url: "https://www.acfun.cn" },
-    { logo: "B", url: 'https://www.bilibili.com' }]
+    { logo: 'A', url: "https://www.acfun.cn", logoIco: 'https://www.acfun.cn/favicon.ico' },
+    { logo: "B", url: 'https://www.bilibili.com', logoIco: 'https://www.bilibili.com/favicon.ico' }]
 const simplifyUrl = (url) => {
     return url.replace('https://', '')
         .replace('http://', '')
@@ -15,11 +15,9 @@ const simplifyUrl = (url) => {
 const render = () => {
     $siteList.find('li:not(.last)').remove()
     hashMap.forEach((node, index) => {
-        console.log(index)
         const $li = $(`<li>
-        
                      <div class="site">
-                    <div class="logo">${node.logo}</div>
+                    <div class="logo"><img src=${node.logoIco}></div>
                     <div class="link">${simplifyUrl(node.url)}</div>
                     <div class="close">
                     <svg class="icon">
@@ -29,6 +27,7 @@ const render = () => {
                 </div>
             
         </li>`).insertBefore($lastLi)
+
         $li.on("click", () => {
             window.open(node.url)
         })
@@ -51,7 +50,7 @@ $('.addButton').on("click", fn => {
     }
     console.log(url)
 
-    hashMap.push({ logo: simplifyUrl(url)[0], url: url })
+    hashMap.push({ logo: simplifyUrl(url)[0], url: url, logoIco: (url + '/favicon.ico') })
     render()
 })
 window.onbeforeunload = () => {

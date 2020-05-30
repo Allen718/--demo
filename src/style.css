@@ -107,6 +107,9 @@ body{
     text-transform: uppercase;
 
 }
+img{
+    width: 40px;
+    }
 .siteList .site>.link{
 font-size:14px;
 margin-top: 4px;
